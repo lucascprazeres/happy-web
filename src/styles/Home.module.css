@@ -1,121 +1,55 @@
-.landing {
+.homepage {
   height: 100vh;
   width: 100vw;
-  background: var(--blue-gradient);
-
+  position: relative;
   display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.contentWrapper {
-  position: relative;
-  
-  width: 100%;
-  max-width: 1120px;
-
-  height: 100%;
-  max-height: 680px;
-
+.homepage aside {
+  background: var(--blue-gradient);
   display: flex;
-  align-items: flex-start;
   flex-direction: column;
   justify-content: space-between;
-
-  background: url('../../public/assets/landing.svg') no-repeat 80% center;
+  width: 27.5rem;
+  padding: 5rem;
 }
 
-.contentWrapper header {
-  display: flex;
-  align-items: center;
-}
-
-.location {
-  margin-left: 4rem;
-
-  font-size: 1.5rem;
-  line-height: 2.125rem;
-}
-.contentWrapper main h1 {
-  max-width: 350px;
-  font-size: 4.75rem;
-  font-weight: 900;
-  line-height: 4.375rem;
-}
-
-.contentWrapper main p {
-  margin-top: 2.5rem;
-  font-size: 1.5rem;
-  line-height: 2.125rem;
-}
-
-.location strong {
+.homepage aside header h2 {
+  font-size: 2.5rem;
   font-weight: 800;
+  line-height: 2.625rem;
+  margin-top: 4rem;
 }
 
-.enterDashboard {
-  text-decoration: none;
-  position: absolute;
-  right: 0;
-  top: 0;
-
-  width: 13.875rem;
-  height: 3.5rem;
-  background-color: var(--blue);
-  border-radius: 1.25rem;
-  color: var(--text);
+.homepage aside header p {
   font-size: 1.25rem;
-  font-weight: 800;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  transition: all 0.2s;
+  line-height: 1.74rem;
+  margin-top: 1.5rem;
 }
 
-.enterDashboard:hover {
-  background: var(--blue-light);
-  color: var(--blue-button-text);
+.leafletcontainer {
+  z-index: 5;
 }
 
-.enterApp {
+.createOrphanage {
   position: absolute;
-  right: 0;
-  bottom: 0;
+  right: 2.5rem;
+  bottom: 2.5rem;
 
-  width: 5rem;
-  height: 5rem;
-  background-color: var(--yellow);
-  border-radius: 1.875rem;
+  z-index: 10;
+
+  width: 4rem;
+  height: 4rem;
+  background: var(--blue-button-text);
+  border-radius: 1.25rem;
 
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 
   transition: background-color 0.2s;
 }
 
-.enterApp:hover {
-  background-color: var(--blue-light);
-}
-
-@media(max-width: 720px) {
-  .contentWrapper {
-    padding: 1rem;
-    background-image: none;
-  }
-
-  .location {
-    display: none;
-  }
-
-  .enterDashboard {
-    display: none;
-  }
-
-  .enterApp {
-    position: relative;
-    width: 100%;
-  }
+.createOrphanage:hover {
+  background: var(--blue-ative);
 }
