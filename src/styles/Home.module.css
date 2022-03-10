@@ -99,3 +99,23 @@
 .enterApp:hover {
   background-color: var(--blue-light);
 }
+
+@media(max-width: 720px) {
+  .contentWrapper {
+    padding: 1rem;
+    background-image: none;
+  }
+
+  .location {
+    display: none;
+  }
+
+  .enterDashboard {
+    display: none;
+  }
+
+  .enterApp {
+    position: relative;
+    width: 100%;
+  }
+}
