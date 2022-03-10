@@ -1,0 +1,22 @@
+.container {
+  height: 100vh;
+  width: 100vw;
+  background: var(--blue-gradient);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container h1 {
+  text-align: center;
+  font-weight: 900;
+}
+
+.container p {
+  text-align: center;
+  margin-top: 2.5rem;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+}
