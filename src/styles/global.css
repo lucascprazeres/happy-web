@@ -2,12 +2,13 @@
 :root {
   --background: #ebf2f5;
   --text: #fff;
-  --blue-gradient: linear-gradient(329.54deg, #29b6d1 0%, #00c7c7 100%);
   --yellow: #fff666;
-  --blue: #12d4e0;
-  --blue-ative: #17d6eb;
-  --blue-button-text: #15c3d6;
-  --blue-light: #98feff;
+  --blue-gradient: linear-gradient(329.54deg, #29b6d1 0%, #00c7c7 100%);
+  --blue-600: #12afcb;
+  --blue-500: #15c3d6;
+  --blue-400: #17d6eb;
+  --blue-300: #12d4e0;
+  --blue-200: #98feff;
 }
 
 * {

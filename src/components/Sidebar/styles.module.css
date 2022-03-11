@@ -1,0 +1,31 @@
+.container {
+  background: var(--blue-gradient);
+
+  height: 100%;
+  width: 6rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 5rem 1.5rem;
+
+  position: fixed;
+}
+
+.goBackButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--blue-600);
+  border: none;
+  border-radius: 1rem;
+  width: 3rem;
+  height: 3rem;
+  transition: background-color 0.2s;
+}
+
+.goBackButton:hover {
+  background: var(--blue-400);
+}
