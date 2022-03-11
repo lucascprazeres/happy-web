@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import { FiArrowRight } from 'react-icons/fi'
 import { mapIcon } from '../../utils/mapIcon'
@@ -8,17 +8,19 @@ import 'leaflet/dist/leaflet.css'
 import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css'
 import "leaflet-defaulticon-compatibility"
 
+import { api } from '../../service/api'
+
 export default function CustomMap() {
-  const [orphanages, setOrphanages] = useState(
-    [
-      {
-        id: 1,
-        name: 'Casa do Menino Jesus',
-        longitude: -1.4550694979832675,
-        latitude: -48.47040729786929
-      }
-    ])
+  const [orphanages, setOrphanages] = useState([])
   const postition = [-1.4644649, -48.4882172]
+
+  useEffect(() => {
+    (async () => {
+      const response = await api.get('/orphanages')
+      const loadedOrphanages = response.data
+      setOrphanages(loadedOrphanages)
+    })()
+  }, [])
 
   return (
     <MapContainer center={postition} zoom={15} style={{ width: '100%', height: '100%' }}>
@@ -32,7 +34,7 @@ export default function CustomMap() {
           <Popup closeButton={false} maxWidth={240} minWidth={240}>
             {orphanage.name}
             <Link
-              href={`/orphanages/${orphanage.id}`}
+              href={`/orphanage/${orphanage.id}`}
             >
               <a>
                 <FiArrowRight size={20} color="#FFF" />
