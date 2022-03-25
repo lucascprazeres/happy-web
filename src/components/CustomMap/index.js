@@ -8,7 +8,7 @@ import 'leaflet/dist/leaflet.css'
 import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css'
 import "leaflet-defaulticon-compatibility"
 
-import { api } from '../../service/api'
+import { api } from '../../services/api'
 
 export default function CustomMap() {
   const [orphanages, setOrphanages] = useState([])

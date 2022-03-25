@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--green);
+  height: 4rem;
+  width: 100%;
+  border: 0;
+  border-radius: 1.25rem;
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.container span {
+  margin-left: 1rem;
+}

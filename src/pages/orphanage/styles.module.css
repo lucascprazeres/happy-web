@@ -1,4 +1,74 @@
 .container {
-  height: 100vh;
-  width: 100vw;
+  display: flex;
+  min-height: 100vh;
+}
+
+.container main {
+  flex: 1;
+}
+
+.details {
+  width: 700px;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  background: #fff;
+  margin: 4rem auto;
+}
+
+.details img {
+  width: 100%;
+  height: 300px;
+  object-fit: contain;
+}
+
+.details .info {
+  padding: 4.375rem;
+  color: var(--text-title);
+}
+
+.details h1 {
+  font-size: 3.375rem;
+  color: var(--text-title);
+  margin-bottom: 1rem;
+}
+
+.details p {
+  margin-bottom: 2rem;
+}
+
+.details h2 {
+  font-size: 2.25rem;
+  margin-bottom: 2rem;
+}
+
+.separator {
+  width: 100%;
+  height: 2px;
+  background: var(--border);
+  margin: 2rem 0;
+}
+
+.cardContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4rem;
+}
+
+.hoursCard {
+  height: 176px;
+  width: 264px;
+  padding: 2rem;
+  border: 2px solid var(--blue-border);
+  border-radius: 1.25rem;
+  background: linear-gradient(329.54deg, #fff 0%, #E6F7FB 100%);
+}
+
+.weekendCard {
+  height: 176px;
+  width: 264px;
+  padding: 2rem;
+  border: 2px solid var(--green-border);
+  border-radius: 1.25rem;
+  background: linear-gradient(329.54deg, #fff 0%, #EDFFF6 100%);
 }
