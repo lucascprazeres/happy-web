@@ -3,7 +3,7 @@ import Link from "next/link"
 import { FiArrowRight } from 'react-icons/fi'
 import logoImg from '../../public/assets/logo.svg'
 
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Landing.module.css'
 
 export default function Landing() {
   return (
@@ -11,11 +11,6 @@ export default function Landing() {
       <div className={styles.contentWrapper}>
         <header>
           <Image src={logoImg} alt="Happy" />
-
-          <div className={styles.location}>
-            <strong>Belém</strong>
-            <p>Pará</p>
-          </div>
 
           <Link href="/dashboard">
           <a className={styles.enterDashboard}>

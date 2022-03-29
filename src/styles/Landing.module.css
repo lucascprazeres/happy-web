@@ -1,0 +1,107 @@
+.landing {
+  height: 100vh;
+  width: 100vw;
+  background: var(--blue-gradient);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contentWrapper {
+  position: relative;
+  
+  width: 100%;
+  max-width: 1120px;
+
+  height: 100%;
+  max-height: 680px;
+
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: space-between;
+
+  background: url('../../public/assets/landing.svg') no-repeat 80% center;
+}
+
+.contentWrapper header {
+  display: flex;
+  align-items: center;
+}
+
+.contentWrapper main h1 {
+  max-width: 350px;
+  font-size: 4.75rem;
+  font-weight: 900;
+  line-height: 4.375rem;
+}
+
+.contentWrapper main p {
+  margin-top: 2.5rem;
+  font-size: 1.5rem;
+  line-height: 2.125rem;
+}
+
+.enterDashboard {
+  text-decoration: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  width: 13.875rem;
+  height: 3.5rem;
+  background-color: var(--blue-300);
+  border-radius: 1.25rem;
+  color: var(--text);
+  font-size: 1.25rem;
+  font-weight: 800;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: all 0.2s;
+}
+
+.enterDashboard:hover {
+  background: var(--blue-200);
+  color: var(--blue-500);
+}
+
+.enterApp {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+
+  width: 5rem;
+  height: 5rem;
+  background-color: var(--yellow);
+  border-radius: 1.875rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: background-color 0.2s;
+}
+
+.enterApp:hover {
+  background-color: var(--blue-200);
+}
+
+@media(max-width: 720px) {
+  .contentWrapper {
+    padding: 1rem;
+    background-image: none;
+  }
+
+  .enterDashboard {
+    display: none;
+  }
+
+  .enterApp {
+    position: relative;
+    width: 100%;
+  }
+}
