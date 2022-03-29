@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 
@@ -12,18 +11,12 @@ import { api } from '../../services/api'
 import styles from './styles.module.css'
 
 export default function Orphanage() {
-  const router = useRouter()
-  const [orphanage, setOrphanage] = useState({})
-
-  useEffect(() => {
-    (async () => {
-      const { id } = router.query
-      const { data } = await api.get(`/orphanages/${id}`)
-
-      setOrphanage(data)
-    })()
-  }, [])
-
+  const [orphanage, setOrphanage] = useState({
+    "id": 1,
+    "name": "Abrigo Euclides Coelho Filho",
+    "longitude": -1.4342403463123783,
+    "latitude": -48.452913890666444
+  })
 
   return (
     <div className={styles.container}>
@@ -31,12 +24,15 @@ export default function Orphanage() {
 
       <main>
         <div className={styles.details}>
-          <img src="../public/assets/orphanage.png" alt={orphanage.name}/>
+          <img
+            src="https://activeforlife.com/content/uploads/2014/08/mom-kids-sand.jpg"
+            alt={orphanage.name}
+          />
 
           <div className={styles.info}>
             <h1>{orphanage.name}</h1>
             <p>
-              Presta assistência a cria nças de 06 a 15 anos que se encontre em situação de risco e/ou vulnerabilidade social.
+              Presta assistência a crianças de 06 a 15 anos que se encontre em situação de risco e/ou vulnerabilidade social.
             </p>
 
             <div className={styles.separator} />
