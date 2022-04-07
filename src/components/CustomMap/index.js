@@ -8,7 +8,9 @@ import 'leaflet/dist/leaflet.css'
 import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css'
 import "leaflet-defaulticon-compatibility"
 
-import { api } from '../../services/api'
+import styles from './styles.module.css'
+
+// import { api } from '../../services/api'
 
 export default function CustomMap() {
   const [orphanages, setOrphanages] = useState([
@@ -33,19 +35,19 @@ export default function CustomMap() {
     {
       "id": 4,
       "name": "Creche Lar Cordeirinho de Deus",
-      "longitude": -1.4501568954598456, 
+      "longitude": -1.4501568954598456,
       "latitude": -48.47089542011791
     }
   ])
   const postition = [-1.4644649, -48.4882172]
 
-  useEffect(() => {
-    (async () => {
-      const response = await api.get('/orphanages')
-      const loadedOrphanages = response.data
-      setOrphanages(loadedOrphanages)
-    })()
-  }, [])
+  // useEffect(() => {
+  //   (async () => {
+  //     const response = await api.get('/orphanages')
+  //     const loadedOrphanages = response.data
+  //     setOrphanages(loadedOrphanages)
+  //   })()
+  // }, [])
 
   return (
     <MapContainer center={postition} zoom={15} style={{ width: '100%', height: '100%' }}>
@@ -56,15 +58,17 @@ export default function CustomMap() {
           position={[orphanage.longitude, orphanage.latitude]}
           icon={mapIcon}
         >
-          <Popup closeButton={false} maxWidth={240} minWidth={240}>
-            {orphanage.name}
-            <Link
-              href={`/orphanage/${orphanage.id}`}
-            >
-              <a>
-                <FiArrowRight size={20} color="#FFF" />
-              </a>
-            </Link>
+          <Popup closeButton={false} offset={{ x: -170, y: -70 }}>
+            <div className={styles.popupContainer}>
+              <span>{orphanage.name}</span>
+              <Link
+                href={`/orphanage/${orphanage.id}`}
+              >
+                <a className={styles.popupAnchor}>
+                  <FiArrowRight size={22} color="#FFF" />
+                </a>
+              </Link>
+            </div>
           </Popup>
         </Marker>
       ))}

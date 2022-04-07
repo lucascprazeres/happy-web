@@ -40,6 +40,29 @@
   margin-bottom: 2rem;
 }
 
+.images {
+  column-gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 16px;
+}
+
+.images button {
+  background: none;
+  border: 0;
+  border-radius: 20px;
+  cursor: pointer;
+  height: 88px;
+  overflow: hidden;
+  outline: none;
+}
+
+.images button img {
+  object-fit: cover;
+  height: 88px;
+  width: 100%;
+}
+
 .separator {
   width: 100%;
   height: 2px;
@@ -70,4 +93,13 @@
   border: 2px solid var(--green-border);
   border-radius: 1.25rem;
   background: linear-gradient(329.54deg, #fff 0%, #EDFFF6 100%);
+}
+
+.noWeekendCard {
+  height: 176px;
+  width: 264px;
+  padding: 2rem;
+  border: 2px solid var(--red-border);
+  border-radius: 1.25rem;
+  background: linear-gradient(329.54deg, #fff 0%, #FCF0F4 100%);
 }
