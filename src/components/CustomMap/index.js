@@ -8,7 +8,7 @@ import 'leaflet/dist/leaflet.css'
 import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css'
 import "leaflet-defaulticon-compatibility"
 
-import { api } from '../../services/api'
+// import { api } from '../../services/api'
 
 export default function CustomMap() {
   const [orphanages, setOrphanages] = useState([
@@ -39,13 +39,13 @@ export default function CustomMap() {
   ])
   const postition = [-1.4644649, -48.4882172]
 
-  useEffect(() => {
-    (async () => {
-      const response = await api.get('/orphanages')
-      const loadedOrphanages = response.data
-      setOrphanages(loadedOrphanages)
-    })()
-  }, [])
+  // useEffect(() => {
+  //   (async () => {
+  //     const response = await api.get('/orphanages')
+  //     const loadedOrphanages = response.data
+  //     setOrphanages(loadedOrphanages)
+  //   })()
+  // }, [])
 
   return (
     <MapContainer center={postition} zoom={15} style={{ width: '100%', height: '100%' }}>

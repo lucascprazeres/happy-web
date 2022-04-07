@@ -1,21 +1,24 @@
-import { useRouter } from "next/router"
-import { useEffect, useState } from "react"
+import dynamic from 'next/dynamic'
+import { useState } from "react"
 
 import { AiOutlineClockCircle, AiOutlineInfoCircle } from 'react-icons/ai'
 
 import { ContactButton } from "../../components/ContactButton"
 import { Sidebar } from "../../components/Sidebar"
 
-import { api } from '../../services/api'
-
 import styles from './styles.module.css'
+
+const OpenGoogleMapsWithNoSSR = dynamic(
+  () => import('../../components/OpenGoogleMaps'),
+  { ssr: false }
+)
 
 export default function Orphanage() {
   const [orphanage, setOrphanage] = useState({
-    "id": 1,
-    "name": "Abrigo Euclides Coelho Filho",
-    "longitude": -1.4342403463123783,
-    "latitude": -48.452913890666444
+    id: 1,
+    name: "Abrigo Euclides Coelho Filho",
+    longitude: -1.4514856892179866,
+    latitude: -48.48527454340272
   })
 
   return (
@@ -34,6 +37,8 @@ export default function Orphanage() {
             <p>
               Presta assistência a crianças de 06 a 15 anos que se encontre em situação de risco e/ou vulnerabilidade social.
             </p>
+
+            <OpenGoogleMapsWithNoSSR orphanage={orphanage}/>
 
             <div className={styles.separator} />
 
