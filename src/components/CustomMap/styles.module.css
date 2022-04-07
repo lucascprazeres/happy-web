@@ -1,0 +1,26 @@
+.popupContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 240px;
+  border-radius: 20px;
+}
+
+.popupContainer span {
+  color: #0089A5;
+  font-family: 'Nunito', sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  margin-right: 4px;
+  width: 240px;
+}
+
+.popupAnchor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  border-radius: 12px;
+  background: #15C3D6;
+}

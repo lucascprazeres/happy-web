@@ -8,6 +8,8 @@ import 'leaflet/dist/leaflet.css'
 import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css'
 import "leaflet-defaulticon-compatibility"
 
+import styles from './styles.module.css'
+
 // import { api } from '../../services/api'
 
 export default function CustomMap() {
@@ -33,7 +35,7 @@ export default function CustomMap() {
     {
       "id": 4,
       "name": "Creche Lar Cordeirinho de Deus",
-      "longitude": -1.4501568954598456, 
+      "longitude": -1.4501568954598456,
       "latitude": -48.47089542011791
     }
   ])
@@ -56,15 +58,17 @@ export default function CustomMap() {
           position={[orphanage.longitude, orphanage.latitude]}
           icon={mapIcon}
         >
-          <Popup closeButton={false} maxWidth={240} minWidth={240}>
-            {orphanage.name}
-            <Link
-              href={`/orphanage/${orphanage.id}`}
-            >
-              <a>
-                <FiArrowRight size={20} color="#FFF" />
-              </a>
-            </Link>
+          <Popup closeButton={false} offset={{ x: -170, y: -70 }}>
+            <div className={styles.popupContainer}>
+              <span>{orphanage.name}</span>
+              <Link
+                href={`/orphanage/${orphanage.id}`}
+              >
+                <a className={styles.popupAnchor}>
+                  <FiArrowRight size={22} color="#FFF" />
+                </a>
+              </Link>
+            </div>
           </Popup>
         </Marker>
       ))}
