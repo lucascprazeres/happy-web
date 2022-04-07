@@ -1,6 +1,11 @@
 import styles from './styles.module.css'
 
-export function Location({ city, state }) {
+interface Props {
+  city: string;
+  state: string;
+}
+
+export function Location({ city, state }: Props) {
   return (
     <div className={styles.container}>
       <strong>{city}</strong>
