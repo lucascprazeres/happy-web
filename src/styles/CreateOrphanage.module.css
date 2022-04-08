@@ -1,0 +1,133 @@
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.container main {
+  flex: 1;
+}
+
+.container main form {
+  width: 700px;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  background: #fff;
+  margin: 4rem auto;
+  padding: 4.375rem;
+}
+
+.container form fieldset {
+  border: 0;
+}
+
+.container form fieldset:nth-child(2) {
+  margin-top: 4rem;
+}
+
+.container form fieldset legend {
+  font-size: 32px;
+  font-weight: bold;
+  color: var(--text-title);
+  padding-bottom: 1.875rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--border);
+  width: 100%;
+}
+
+.container form label {
+  font-size: 1rem;
+  color: var(--input-label);
+}
+
+.container form input, .container form textarea {
+  width: 100%;
+  height: 4rem;
+  border-radius: 1.25rem;
+  border: 2px solid var(--border);
+  background: var(--input-background);
+  font-size: 1.125rem;
+  color: var(--input-text);
+  padding: 1rem;
+  margin: 0.5rem 0;
+}
+
+.container form textarea {
+  height: 7.5rem;
+  resize: none;
+}
+
+.container button {
+  width: 100%;
+  height: 4rem;
+  border-radius: 1.25rem;
+  background: var(--green-text);
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  border: 0;
+  margin-top: 4rem;
+}
+
+.container button:disabled {
+  opacity: 0.5;
+  cursor: auto;
+}
+
+.container button:hover {
+  background: var(--green-button-hover);
+  transition: background 0.2s;
+}
+
+.about span {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--input-label);
+  margin-left: 2rem;
+}
+
+.openOnWeekends {
+  height: 4rem;
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  border-radius: 1.25rem;
+  margin-top: 0.5rem;
+}
+
+.openOnWeekends input[type="radio"] {
+ display: none;
+}
+
+.openOnWeekends label {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.188rem;
+  cursor: pointer;
+  border: 2px solid var(--border);
+ }
+
+ .openOnWeekends .doOpenOnWeekends {
+  border-radius: 1.25rem 0 0 1.25rem;
+  border-right: 0;
+ }
+
+.openOnWeekends .doOpenOnWeekendsActive {
+  border-radius: 1.25rem 0 0 1.25rem;
+  border-color: var(--green-border);
+  background-color: var(--green-select);
+  color: var(--green-text);
+ }
+
+ .openOnWeekends .dontOpenOnWeekends {
+  border-radius: 0 1.25rem 1.25rem 0;
+  border-left: 0;
+}
+
+.openOnWeekends .dontOpenOnWeekendsActive {
+  border-radius: 0 1.25rem 1.25rem 0;
+  border-color: var(--red-border);
+  background-color: var(--red-select);
+  color: var(--red-text);
+ }

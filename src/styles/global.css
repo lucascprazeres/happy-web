@@ -13,8 +13,16 @@
   --blue-border: #B3DAE2;
   --border: #D3E2E5;
   --green: #3CDC8C;
+  --green-text: #37C77F;
+  --green-button-hover: #3EE08F;
   --green-border: #A1E9C5;
   --red-border: #FFBCD4;
+  --red-select: #FFE4EE;
+  --red-text: #FF669D;
+  --input-background: #F5F8FA;
+  --input-text: #5C8599;
+  --input-label: #8FA7B2;
+  --green-select: #EDFFF6;
 }
 
 * {
