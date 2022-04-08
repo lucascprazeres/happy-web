@@ -1,7 +1,11 @@
 import { FaWhatsapp } from 'react-icons/fa'
 import styles from './styles.module.css'
 
-export function ContactButton({ whatsapp }) {
+interface Props {
+  whatsapp: string;
+}
+
+export function ContactButton({ whatsapp }: Props) {
   return (
     <a
       className={styles.container}

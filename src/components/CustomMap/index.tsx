@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { Point, LatLngTuple } from 'leaflet'
 import { useEffect, useState } from 'react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import { FiArrowRight } from 'react-icons/fi'
@@ -39,7 +40,7 @@ export default function CustomMap() {
       "latitude": -48.47089542011791
     }
   ])
-  const postition = [-1.4644649, -48.4882172]
+  const postition = [-1.4644649, -48.4882172] as LatLngTuple
 
   // useEffect(() => {
   //   (async () => {
@@ -58,7 +59,7 @@ export default function CustomMap() {
           position={[orphanage.longitude, orphanage.latitude]}
           icon={mapIcon}
         >
-          <Popup closeButton={false} offset={{ x: -170, y: -70 }}>
+          <Popup closeButton={false} offset={{ x: -170, y: -70 } as Point} >
             <div className={styles.popupContainer}>
               <span>{orphanage.name}</span>
               <Link

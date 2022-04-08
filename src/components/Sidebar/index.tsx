@@ -3,6 +3,7 @@ import Image from "next/image";
 
 import { FiArrowLeft } from 'react-icons/fi';
 
+//@ts-ignore
 import mapMarkerImg from '../../../public/assets/map-marker.svg'
 
 import styles from './styles.module.css'

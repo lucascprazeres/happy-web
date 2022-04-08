@@ -13,9 +13,25 @@ const OpenGoogleMapsWithNoSSR = dynamic(
   { ssr: false }
 )
 
+interface Orphanage {
+  id: string;
+  name: string;
+  longitude: number;
+  latitude: number;
+  about: string;
+  instructions: string;
+  opening_hours: string;
+  open_on_weekends: boolean;
+  whatsapp: string;
+  images: {
+    id: string;
+    path: string;
+  }[];
+}
+
 export default function Orphanage() {
-  const [orphanage, setOrphanage] = useState({
-    id: 1,
+  const [orphanage, setOrphanage] = useState<Orphanage>({
+    id: '1',
     name: "Abrigo Euclides Coelho Filho",
     longitude: -1.4514856892179866,
     latitude: -48.48527454340272,
@@ -25,9 +41,9 @@ export default function Orphanage() {
     open_on_weekends: false,
     whatsapp: '1234',
     images: [
-      { id: 1, path: 'https://activeforlife.com/content/uploads/2014/08/mom-kids-sand.jpg' },
-      { id: 2, path: 'https://previews.123rf.com/images/stylephotographs/stylephotographs1604/stylephotographs160400351/55606029-.jpg' },
-      { id: 3, path: 'https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/other/active_kids_other/1800x1200_active_kids_other_alt.jpg' },
+      { id: '1', path: 'https://activeforlife.com/content/uploads/2014/08/mom-kids-sand.jpg' },
+      { id: '2', path: 'https://previews.123rf.com/images/stylephotographs/stylephotographs1604/stylephotographs160400351/55606029-.jpg' },
+      { id: '3', path: 'https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/other/active_kids_other/1800x1200_active_kids_other_alt.jpg' },
     ]
   })
   const [activeImageIndex, setActiveImageIndex] = useState(0);

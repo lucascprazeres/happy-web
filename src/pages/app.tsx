@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { FiPlus } from 'react-icons/fi'
 
 import { Location } from '../components/Location'
-
+//@ts-ignore
 import mapMarkerImg from '../../public/assets/map-marker.svg'
 
 import styles from '../styles/Home.module.css'
@@ -18,7 +18,7 @@ export default function Home() {
         <header>
           <Image
             src={mapMarkerImg}
-            alt="Happy" pages
+            alt="Happy"
           />
 
           <h2>Escolha um orfanato no mapa</h2>

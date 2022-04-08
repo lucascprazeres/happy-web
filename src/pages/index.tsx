@@ -1,6 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { FiArrowRight } from 'react-icons/fi'
+//@ts-ignore
 import logoImg from '../../public/assets/logo.svg'
 
 import styles from '../styles/Landing.module.css'

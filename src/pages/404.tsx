@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import styles from '../styles/Error.module.css'
-
+//@ts-ignore
 import landingImg from '../../public/assets/landing.svg'
 
 export default function Custom404() {
