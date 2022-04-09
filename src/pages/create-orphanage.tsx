@@ -1,9 +1,16 @@
-import { FormEvent, useEffect, useMemo, useState } from "react";
+import dynamic from "next/dynamic";
+import { FormEvent, useCallback, useState } from "react";
+import { LeafletMouseEvent } from "leaflet";
 import { Sidebar } from "../components/Sidebar";
 
 import styles from '../styles/CreateOrphanage.module.css'
 
+const MapInputWithNoSSR = dynamic(() => import('../components/MapInput'), {
+  ssr: false,
+})
+
 export default function CreateOrphanage() {
+  const [position, setPosition] = useState({ latitude: 0, longitude: 0 })
   const [name, setName] = useState('')
   const [about, setAbout] = useState('')
   const [whatsapp, setWhatsapp] = useState('')
@@ -11,9 +18,15 @@ export default function CreateOrphanage() {
   const [openingHours, setOpeningHours] = useState('')
   const [openOnWeekends, setOpenOnWeekends] = useState(true)
 
+  const handleMapClick = useCallback((event: LeafletMouseEvent) => {
+    const { lat, lng } = event.latlng;
+    setPosition({ latitude: lat, longitude: lng });
+  }, []);
+
   async function handleSubmit(event: FormEvent) {
     event.preventDefault()
     const data = {
+      position,
       name,
       about,
       whatsapp,
@@ -32,6 +45,8 @@ export default function CreateOrphanage() {
         <form onSubmit={handleSubmit}>
           <fieldset>
             <legend>Dados</legend>
+
+            <MapInputWithNoSSR handleMapClick={handleMapClick}/>
 
             <label htmlFor="name">Nome</label>
             <input
@@ -68,10 +83,23 @@ export default function CreateOrphanage() {
             <legend>Visitação</legend>
 
             <label htmlFor="instructions">Instruções</label>
-            <textarea maxLength={300} id="instructions" name="instructions" />
+            <textarea
+              maxLength={300}
+              id="instructions"
+              name="instructions"
+              value={instructions}
+              onChange={(e) => setInstructions(e.target.value)}
+            />
 
             <label htmlFor="opening_hours">Horário das visitações</label>
-            <input type="text" id="opening_hours" name="opening_hours" placeholder='"Das 8h às 17h"' />
+            <input
+              type="text"
+              id="opening_hours"
+              name="opening_hours"
+              placeholder='"Das 8h às 17h"'
+              value={openingHours}
+              onChange={(e) => setOpeningHours(e.target.value)}
+            />
 
             <label htmlFor="">Atende fim de semana?</label>
             <div className={styles.openOnWeekends}>
