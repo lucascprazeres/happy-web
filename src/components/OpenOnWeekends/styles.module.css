@@ -1,0 +1,46 @@
+.container {
+  height: 4rem;
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  border-radius: 1.25rem;
+  margin-top: 0.5rem;
+}
+
+.container input[type="radio"] {
+ display: none;
+}
+
+.container label {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.188rem;
+  cursor: pointer;
+  border: 2px solid var(--border);
+ }
+
+.doOpenOnWeekends {
+  border-radius: 1.25rem 0 0 1.25rem;
+  border-right: 0;
+ }
+
+.doOpenOnWeekendsActive {
+  border-radius: 1.25rem 0 0 1.25rem;
+  border-color: var(--green-border);
+  background-color: var(--green-select);
+  color: var(--green-text);
+ }
+
+.dontOpenOnWeekends {
+  border-radius: 0 1.25rem 1.25rem 0;
+  border-left: 0;
+}
+
+.dontOpenOnWeekendsActive {
+  border-radius: 0 1.25rem 1.25rem 0;
+  border-color: var(--red-border);
+  background-color: var(--red-select);
+  color: var(--red-text);
+ }
