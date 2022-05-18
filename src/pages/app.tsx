@@ -22,7 +22,7 @@ export default function Home() {
           />
 
           <h2>Escolha um orfanato no mapa</h2>
-          <p>Muitas crianças estão <br /> esperando a sua visita :)</p>
+          <p>Muitas crianças <br /> esperam a sua visita :)</p>
         </header>
 
         <div></div>
@@ -33,13 +33,13 @@ export default function Home() {
             state="Pará"
           />
         </footer>
-
-        <Link href="/create-orphanage">
-          <a className={styles.createOrphanage}>
-            <FiPlus size={32} color="#fff" />
-          </a>
-        </Link>
       </aside>
+
+      <Link href="/create-orphanage">
+        <a className={styles.createOrphanage}>
+          <FiPlus size={32} color="#fff" />
+        </a>
+      </Link>
       <MapWithNoSSR />
     </div>
   )
