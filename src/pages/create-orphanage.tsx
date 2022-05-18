@@ -1,19 +1,53 @@
-import { FormEvent, useEffect, useMemo, useState } from "react";
+import Image from "next/image";
+import dynamic from "next/dynamic";
+import { ChangeEvent, FormEvent, useCallback, useState } from "react";
+import { LeafletMouseEvent } from "leaflet";
 import { Sidebar } from "../components/Sidebar";
+import { OpenOnWeenkends } from '../components/OpenOnWeekends'
 
 import styles from '../styles/CreateOrphanage.module.css'
+import { FiPlus } from "react-icons/fi";
+
+const MapInputWithNoSSR = dynamic(() => import('../components/MapInput'), {
+  ssr: false,
+})
 
 export default function CreateOrphanage() {
+  const [position, setPosition] = useState({ latitude: 0, longitude: 0 })
   const [name, setName] = useState('')
   const [about, setAbout] = useState('')
   const [whatsapp, setWhatsapp] = useState('')
   const [instructions, setInstructions] = useState('')
   const [openingHours, setOpeningHours] = useState('')
   const [openOnWeekends, setOpenOnWeekends] = useState(true)
+  const [images, setImages] = useState<File[]>([]);
+  const [previews, setPreviews] = useState<string[]>([])
+
+  const handleMapClick = useCallback((event: LeafletMouseEvent) => {
+    const { lat, lng } = event.latlng;
+    setPosition({ latitude: lat, longitude: lng });
+  }, []);
+
+  const handleSelectedImage = useCallback(
+    (event: ChangeEvent<HTMLInputElement>) => {
+      if (event.target.files) {
+        const selectedImages = Array.from(event.target.files);
+        setImages(selectedImages);
+
+        setPreviews(
+          selectedImages.map(image => {
+            return URL.createObjectURL(image);
+          }),
+        );
+      }
+    },
+    [],
+  );
 
   async function handleSubmit(event: FormEvent) {
     event.preventDefault()
     const data = {
+      position,
       name,
       about,
       whatsapp,
@@ -29,81 +63,107 @@ export default function CreateOrphanage() {
       <Sidebar />
 
       <main>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className={styles.form}>
           <fieldset>
             <legend>Dados</legend>
 
-            <label htmlFor="name">Nome</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
+            <MapInputWithNoSSR handleMapClick={handleMapClick} />
 
-            <div className={styles.about}>
-              <label htmlFor="about">Sobre</label>
-              <span>Máximo 300 caracteres</span>
+            <div className={styles.inputBlock}>
+              <label htmlFor="name">Nome</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
             </div>
-            <textarea
-              maxLength={300}
-              id="about"
-              name="about"
-              value={about}
-              onChange={(e) => setAbout(e.target.value)}
-            />
 
-            <label htmlFor="whatsapp">Número de Whatsapp</label>
-            <input
-              type="tel"
-              id="whatsapp"
-              name="whatsapp"
-              value={whatsapp}
-              onChange={(e) => setWhatsapp(e.target.value)}
-            />
+            <div className={styles.inputBlock}>
+              <label htmlFor="about">
+                Sobre <span>Máximo 300 caracteres</span>
+              </label>
+              <textarea
+                maxLength={300}
+                id="about"
+                name="about"
+                value={about}
+                onChange={(e) => setAbout(e.target.value)}
+              />
+            </div>
+
+            <div className={styles.inputBlock}>
+              <label htmlFor="whatsapp">Número de Whatsapp</label>
+              <input
+                type="tel"
+                id="whatsapp"
+                name="whatsapp"
+                value={whatsapp}
+                onChange={(e) => setWhatsapp(e.target.value)}
+              />
+            </div>
+
+            <div className={styles.inputBlock}>
+              <label htmlFor="images">Fotos</label>
+              <div className={styles.uploadedImages}>
+                {previews.map((image, index) => (
+                  <Image
+                    src={image}
+                    key={image}
+                    height={96}
+                    width="100%"
+                    alt="Preview"
+                  />
+                ))}
+                <label className={styles.newImage} htmlFor="image[]">
+                  <FiPlus size={24} color="#15b6d6" />
+                </label>
+                <input
+                  type="file"
+                  id="image[]"
+                  multiple
+                  onChange={handleSelectedImage}
+                />
+              </div>
+            </div>
           </fieldset>
 
           <fieldset>
             <legend>Visitação</legend>
 
-            <label htmlFor="instructions">Instruções</label>
-            <textarea maxLength={300} id="instructions" name="instructions" />
-
-            <label htmlFor="opening_hours">Horário das visitações</label>
-            <input type="text" id="opening_hours" name="opening_hours" placeholder='"Das 8h às 17h"' />
-
-            <label htmlFor="">Atende fim de semana?</label>
-            <div className={styles.openOnWeekends}>
-              <label
-                htmlFor="doOpenOnWeekends"
-                className={openOnWeekends ? styles.doOpenOnWeekendsActive : styles.doOpenOnWeekends}
-              >
-                Sim
-              </label>
-              <input type="radio"
-                id="doOpenOnWeekends"
-                name="open_on_weekends"
-                value="true"
-                onClick={() => setOpenOnWeekends(true)}
+            <div className={styles.inputBlock}>
+              <label htmlFor="instructions">Instruções</label>
+              <textarea
+                maxLength={300}
+                id="instructions"
+                name="instructions"
+                value={instructions}
+                onChange={(e) => setInstructions(e.target.value)}
               />
-              <label
-                htmlFor="dontOpenOnWeekends"
-                className={!openOnWeekends ? styles.dontOpenOnWeekendsActive : styles.dontOpenOnWeekends}
-              >
-                Não
-              </label>
+            </div>
+
+            <div className={styles.inputBlock}>
+              <label htmlFor="opening_hours">Horário das visitações</label>
               <input
-                type="radio"
-                id="dontOpenOnWeekends"
-                name="open_on_weekends"
-                value="false"
-                onClick={() => setOpenOnWeekends(false)}
+                type="text"
+                id="opening_hours"
+                name="opening_hours"
+                placeholder='"Das 8h às 17h"'
+                value={openingHours}
+                onChange={(e) => setOpeningHours(e.target.value)}
+              />
+            </div>
+            <div className={styles.inputBlock}>
+              <label htmlFor="">Atende fim de semana?</label>
+              <OpenOnWeenkends
+                open={openOnWeekends}
+                handleSelect={setOpenOnWeekends}
               />
             </div>
           </fieldset>
 
-          <button type="submit">
+          <button type="submit" className={styles.submitButton}>
             Confirmar
           </button>
         </form>

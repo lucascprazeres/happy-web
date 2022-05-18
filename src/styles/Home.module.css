@@ -10,12 +10,12 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 27.5rem;
+  width: 26rem;
   padding: 5rem;
 }
 
 .homepage aside header h2 {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 800;
   line-height: 2.625rem;
   margin-top: 4rem;
@@ -52,4 +52,10 @@
 
 .createOrphanage:hover {
   background: var(--blue-400);
+}
+
+@media(max-width: 720px) {
+  .homepage aside {
+    display: none;
+  }
 }

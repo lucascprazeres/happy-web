@@ -1,0 +1,17 @@
+.container {
+  border: 1px solid #d3e2e5;
+  border-radius: 1.25rem;
+  margin-bottom: 2.5rem;
+  overflow: hidden;
+}
+
+.container footer {
+  padding: 1.25rem 0;
+  background: #F5F8FA;
+  text-align: center;
+}
+
+.container footer span {
+  line-height: 1.5rem;
+  color: #0089a5;
+}

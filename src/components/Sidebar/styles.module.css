@@ -29,3 +29,9 @@
 .goBackButton:hover {
   background: var(--blue-400);
 }
+
+@media(max-width: 720px) {
+  .container {
+    display: none;
+  }
+}
