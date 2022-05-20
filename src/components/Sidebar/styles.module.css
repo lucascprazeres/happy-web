@@ -1,6 +1,8 @@
 .container {
   background: var(--blue-gradient);
 
+  z-index: 500;
+
   height: 100%;
   width: 6rem;
 

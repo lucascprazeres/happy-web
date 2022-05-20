@@ -51,7 +51,7 @@ export default function CustomMap() {
   // }, [])
 
   return (
-    <MapContainer center={postition} zoom={15} style={{ width: '100%', height: '100%' }}>
+    <MapContainer center={postition} zoom={15} style={{ width: '100%', height: '100%' }} zoomControl={false}>
       <TileLayer url="https://a.tile.openstreetmap.org/{z}/{x}/{y}.png" />
       {orphanages.map(orphanage => (
         <Marker

@@ -8,32 +8,14 @@ import { Location } from '../components/Location'
 import mapMarkerImg from '../../public/assets/map-marker.svg'
 
 import styles from '../styles/Home.module.css'
+import { Sidebar } from '../components/Sidebar'
 
 const MapWithNoSSR = dynamic(() => import('../components/CustomMap'), { ssr: false })
 
 export default function Home() {
   return (
     <div className={styles.homepage}>
-      <aside>
-        <header>
-          <Image
-            src={mapMarkerImg}
-            alt="Happy"
-          />
-
-          <h2>Escolha um orfanato no mapa</h2>
-          <p>Muitas crianças <br /> esperam a sua visita :)</p>
-        </header>
-
-        <div></div>
-
-        <footer>
-          <Location
-            city="Belém"
-            state="Pará"
-          />
-        </footer>
-      </aside>
+      <Sidebar backTo='/'/>
 
       <Link href="/create-orphanage">
         <a className={styles.createOrphanage}>

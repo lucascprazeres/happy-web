@@ -5,15 +5,6 @@
   display: flex;
 }
 
-.homepage aside {
-  background: var(--blue-gradient);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 26rem;
-  padding: 5rem;
-}
-
 .homepage aside header h2 {
   font-size: 2rem;
   font-weight: 800;
