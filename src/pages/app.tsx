@@ -14,8 +14,8 @@ const MapWithNoSSR = dynamic(() => import('../components/CustomMap'), { ssr: fal
 
 export default function Home() {
   return (
-    <div className={styles.homepage}>
-      <Sidebar backTo='/'/>
+    <div className={styles.container}>
+      <Sidebar />
 
       <Link href="/create-orphanage">
         <a className={styles.createOrphanage}>

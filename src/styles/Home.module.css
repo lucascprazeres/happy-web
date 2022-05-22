@@ -1,18 +1,18 @@
-.homepage {
+.container {
   height: 100vh;
   width: 100vw;
   position: relative;
   display: flex;
 }
 
-.homepage aside header h2 {
+.container aside header h2 {
   font-size: 2rem;
   font-weight: 800;
   line-height: 2.625rem;
   margin-top: 4rem;
 }
 
-.homepage aside header p {
+.container aside header p {
   font-size: 1.25rem;
   line-height: 1.74rem;
   margin-top: 1.5rem;
@@ -46,7 +46,7 @@
 }
 
 @media(max-width: 720px) {
-  .homepage aside {
+  .container aside {
     display: none;
   }
 }
