@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 import { FormEvent, useState } from 'react'
 
 import logoImg from '../../public/assets/signin.svg'
@@ -12,8 +13,12 @@ export default function SignIn() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
+  const router = useRouter();
+
   async function handleSubmit(event: FormEvent) {
     event.preventDefault()
+
+    router.replace('/dashboard/approved-requests')
   }
 
   return (
