@@ -7,6 +7,8 @@ import { OpenOnWeenkends } from '../components/OpenOnWeekends'
 
 import styles from '../styles/CreateOrphanage.module.css'
 import { FiPlus } from "react-icons/fi";
+import { Input } from "../components/Input";
+import { ConfirmButton } from "../components/ConfirmButton";
 
 const MapInputWithNoSSR = dynamic(() => import('../components/MapInput'), {
   ssr: false,
@@ -71,12 +73,10 @@ export default function CreateOrphanage() {
 
             <div className={styles.inputBlock}>
               <label htmlFor="name">Nome</label>
-              <input
-                type="text"
-                id="name"
+              <Input
                 name="name"
                 value={name}
-                onChange={(e) => setName(e.target.value)}
+                onChangeText={setName}
               />
             </div>
 
@@ -95,12 +95,11 @@ export default function CreateOrphanage() {
 
             <div className={styles.inputBlock}>
               <label htmlFor="whatsapp">Número de Whatsapp</label>
-              <input
-                type="tel"
-                id="whatsapp"
-                name="whatsapp"
+              <Input
                 value={whatsapp}
-                onChange={(e) => setWhatsapp(e.target.value)}
+                type="tel"
+                name="whatsapp"
+                onChangeText={setWhatsapp}
               />
             </div>
 
@@ -145,17 +144,15 @@ export default function CreateOrphanage() {
 
             <div className={styles.inputBlock}>
               <label htmlFor="opening_hours">Horário das visitações</label>
-              <input
-                type="text"
-                id="opening_hours"
+              <Input
                 name="opening_hours"
-                placeholder='"Das 8h às 17h"'
                 value={openingHours}
-                onChange={(e) => setOpeningHours(e.target.value)}
+                onChangeText={setOpeningHours}
               />
             </div>
+
             <div className={styles.inputBlock}>
-              <label htmlFor="">Atende fim de semana?</label>
+              <label>Atende fim de semana?</label>
               <OpenOnWeenkends
                 open={openOnWeekends}
                 handleSelect={setOpenOnWeekends}
@@ -163,9 +160,7 @@ export default function CreateOrphanage() {
             </div>
           </fieldset>
 
-          <button type="submit" className={styles.submitButton}>
-            Confirmar
-          </button>
+          <ConfirmButton type="submit">confirmar</ConfirmButton>
         </form>
       </main>
     </div>

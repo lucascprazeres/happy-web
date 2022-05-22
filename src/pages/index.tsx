@@ -19,7 +19,7 @@ export default function Landing() {
             <Location city="Belém" state="Pará" />
           </span>
 
-          <Link href="/dashboard">
+          <Link href="/signin">
             <a className={styles.enterDashboard}>
               Acesso restrito
             </a>
@@ -38,7 +38,7 @@ export default function Landing() {
         <Link href="/app">
           <a className={styles.enterApp}>
             <span>Abrir o mapa</span>
-            <FiArrowRight size={26} color="rgba(0, 0, 0, 0.6)" />
+            <FiArrowRight size={26} color="rgba(0, 0, 0, 0.6)"  />
           </a>
         </Link>
       </div>

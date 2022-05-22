@@ -1,0 +1,72 @@
+.container {
+  height: 100vh;
+  display: flex;
+  align-items: stretch;
+}
+
+.background {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--blue-gradient);
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.location {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+.location strong {
+  font-weight: 800;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2.625rem;
+  width: 100%;
+  max-width: 520px;
+  background: #fff;
+}
+
+.content form {
+  margin-top: 6rem;
+  width: 100%;
+}
+
+.content form fieldset {
+  border: 0;
+  margin-bottom: 2rem;
+}
+
+.content form fieldset legend {
+  color: var(--input-text);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 2.125rem;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.inputBlock {
+  margin-bottom: 1.5rem;
+}
+
+.inputBlock label {
+  display: flex;
+  line-height: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--input-label);
+}
+

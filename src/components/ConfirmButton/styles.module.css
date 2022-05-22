@@ -1,0 +1,20 @@
+.container {
+  width: 100%;
+  height: 4rem;
+  border-radius: 1.25rem;
+  background: var(--green-text);
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  border: 0;
+}
+
+.container:disabled {
+  opacity: 0.5;
+  cursor: auto;
+}
+
+.container:hover {
+  background: var(--green-button-hover);
+  transition: background 0.2s;
+}
